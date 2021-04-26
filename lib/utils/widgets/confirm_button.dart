@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 class ConfirmButton extends StatelessWidget {
   final Function() onPressed;
   final String title;
+  final bool isLoading;
 
-  ConfirmButton({Key key, this.title, this.onPressed}) : super(key: key);
+  ConfirmButton({Key key, @required this.title, @required this.onPressed, @required this.isLoading}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      onPressed: () => onPressed,
-      child: Text(title, style: TextStyle(fontSize: 16)),
+      onPressed: isLoading ? (){} : onPressed,
+      child: isLoading ? CircularProgressIndicator(backgroundColor: Colors.grey,) : Text(title, style: TextStyle(fontSize: 16)),
       textColor: Colors.white,
       color: Colors.blue,
       height: 60,

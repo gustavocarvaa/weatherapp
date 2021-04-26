@@ -4,7 +4,8 @@ import 'package:weatherapp/utils/widgets/title.dart';
 class MainTemperature extends StatelessWidget {
   final double temperature;
 
-  const MainTemperature({Key key, @required this.temperature}) : super(key: key);
+  const MainTemperature({Key key, @required this.temperature})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,9 @@ class MainTemperature extends StatelessWidget {
       children: [
         MainTitle(title: temperature.toString()),
         SizedBox(height: 8),
-        Subtitle(text: 'Temperature',),
+        Subtitle(
+          text: 'Temperature',
+        ),
       ],
     );
   }
@@ -22,19 +25,28 @@ class MinMax extends StatelessWidget {
   final double min;
   final double max;
 
-  const MinMax({Key key, this.min, this.max}) : super(key: key);
+  const MinMax({
+    Key key,
+    this.min,
+    this.max,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // var width = MediaQuery.of(context).;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        MainTitle(title: min.toString()),
-        SizedBox(height: 8),
-        Subtitle(text: 'Min',),
-        MainTitle(title: max.toString()),
-        SizedBox(height: 8),
-        Subtitle(text: 'Max',),
+        Column(children: [
+          MainTitle(title: min.toString()),
+          Subtitle(text: 'Min Temperature', fontSize: 18),
+        ]),
+        Column(
+          children: [
+            MainTitle(title: max.toString()),
+            Subtitle(text: 'Max Temperature', fontSize: 18),
+          ],
+        )
       ],
     );
   }
