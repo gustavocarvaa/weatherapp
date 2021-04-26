@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weatherapp/controllers/weather_bloc.dart';
 import 'package:weatherapp/repositories/weather_repository.dart';
 import 'package:weatherapp/views/search_page.dart';
+import 'package:weatherapp/views/temperature_page.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // var weatherBloc = BlocProvider.of<WeatherBloc>(context);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.grey.shade900,

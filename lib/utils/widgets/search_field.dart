@@ -11,6 +11,7 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
         controller: controller,
+        style: TextStyle(color: Colors.grey),
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey),

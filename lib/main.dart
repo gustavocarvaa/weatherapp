@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'controllers/weather_bloc.dart';
+import 'repositories/weather_repository.dart';
 import 'views/home.dart';
 void main() {
   runApp(MyApp());
@@ -16,7 +19,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: BlocProvider(create: (context) => WeatherBloc(WeatherRepo()),
+        child: MyHomePage(),
+        ),
     );
   }
 }
